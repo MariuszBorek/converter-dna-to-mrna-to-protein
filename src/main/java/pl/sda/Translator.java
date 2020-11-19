@@ -24,18 +24,18 @@ public class Translator {
     }
 
     String translateRnaToAminoAcid(String rna) {
-        String[] rnaSplitedForCodons = new String[rna.length() / 3];
+        String[] rnaSplitForCodons = new String[rna.length() / 3];
         for (int i = 0, j = 0; i < rna.length() / 3; i++) {
             char nucleotide0 = rna.charAt(j);
             char nucleotide1 = rna.charAt(j + 1);
             char nucleotide2 = rna.charAt(j + 2);
             String codon = Character.toString(nucleotide0) + Character.toString(nucleotide1) + Character.toString(nucleotide2);
-            rnaSplitedForCodons[i] = codon;
+            rnaSplitForCodons[i] = codon;
             j += 3;
         }
-        String splitedCodons = Arrays.toString(rnaSplitedForCodons);
+        String splitCodons = Arrays.toString(rnaSplitForCodons);
 
-        String aminoAcidSeries = splitedCodons.replaceAll(", ", "-")
+        String aminoAcidSeries = splitCodons.replaceAll(", ", "-")
                 .replaceAll("AUU", "Ile")
                 .replaceAll("AUC", "Ile")
                 .replaceAll("AUA", "Ile")
